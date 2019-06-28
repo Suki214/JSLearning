@@ -59,3 +59,16 @@ MYAPP.version=1.0;
 MYAPP.foo= function(){
     return 'foo';
 };
+
+var [x, y, z] = ['hello', 'JavaScript', 'ES6'];
+alert('x= '+x+' y= '+y+' z= '+z)
+
+var person = {
+    name: '小明',
+    age: 20,
+    gender: 'male',
+    passport: 'G-12345678'
+};
+var {name, age, passport} = person; // name, age, passport分别被赋值为对应属性:
+
+
