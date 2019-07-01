@@ -71,4 +71,42 @@ var person = {
 };
 var {name, age, passport} = person; // name, age, passport分别被赋值为对应属性:
 
+var person = {
+    name: '小明',
+    age: 20,
+    gender: 'male',
+    passport: 'G-12345678'
+};
+
+// 把passport属性赋值给变量id:
+let {name, passport:id} = person;
+name; // '小明'
+id; // 'G-12345678'
+// 注意: passport不是变量，而是为了让变量id获得passport属性:
+passport; // Uncaught ReferenceError: passport is not defined
+
+
+var person = {
+    name: '小明',
+    age: 20
+};
+
+// 如果person对象没有single属性，默认赋值为true:
+var {name, single=true} = person;
+name; // '小明'
+single; // true
+
+
+// 声明变量:
+var x, y;
+// 解构赋值:
+//{x, y} = { name: '小明', x: 100, y: 200};
+// 语法错误: Uncaught SyntaxError: Unexpected token =
+//这是因为JavaScript引擎把{开头的语句当作了块处理，于是=不再合法。解决方法是用小括号括起来：
+({x, y} = { name: '小明', x: 100, y: 200});
+
+function buildDate({year, month, day, hour=0, minute=0, second=0}) {
+    return new Date(year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second);
+}
+
 
