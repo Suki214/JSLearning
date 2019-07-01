@@ -32,3 +32,21 @@ const createStore =(reducer)=>{
 };
 
 //Reducer: 命名不代表含义，叫这个名字完全是因为和reduce函数长得很像，所以叫reducer
+const todos =(state=[], action)=>{
+    //根据不同的action.type对state进行不同的操作，一般是用switch实现
+    switch(action.type){
+        case 'ADD_TODO':
+            return [
+                //这里是ES7里的对象展开运算符语法
+                ...state,
+                {
+                    id: action.id,
+                    text : action.text,
+                    completed: false
+                }
+            ];
+        //不知道是什么类型的action的话就返回默认的state
+        default:
+            return state;
+    }
+};
