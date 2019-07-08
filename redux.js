@@ -221,4 +221,4 @@ function todoApp(state=[],action){
 }
 //每个reducer只负责管理全局state中它负责的一部分。每个reducer的state参数不同，分别对应它管理的那部分state数据
 //最后redux提供了combineReducers()工具类来做上面todoApp的事情
-按以下
+//按以下方式来
